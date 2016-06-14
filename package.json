@@ -1,0 +1,23 @@
+{
+  "name": "Shopio",
+  "version": "0.0.1",
+  "description": "Social Shopping App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msusur/shopio.git"
+  },
+  "keywords": [
+    "shopping",
+    "social"
+  ],
+  "author": "mert susur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msusur/shopio/issues"
+  },
+  "homepage": "https://github.com/msusur/shopio"
+}

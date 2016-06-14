@@ -33,6 +33,9 @@ jspm_packages
 # bower dependencies
 bower_components
 
+# mac stuff
+.DS_Store
+
 # Optional npm cache directory
 .npm
 

@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/msusur/shopio/issues"
   },
-  "homepage": "https://github.com/msusur/shopio"
+  "homepage": "https://github.com/msusur/shopio",
+  "devDependencies": {
+    "express": "^4.13.4"
+  }
 }

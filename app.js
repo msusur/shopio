@@ -1,6 +1,7 @@
 var express = require("express");
 var home = require("./controllers/home");
 
+
 var app = new express();
 
 app.use("/", express.static("html"));

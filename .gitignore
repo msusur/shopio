@@ -32,6 +32,8 @@ jspm_packages
 
 # bower dependencies
 bower_components
+html/js/**
+html/css/**
 
 # mac stuff
 .DS_Store

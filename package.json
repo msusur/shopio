@@ -16,6 +16,7 @@
     "grunt-open": "^0.2.3"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "mongoose": "^4.5.10"
   }
 }

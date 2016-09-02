@@ -1,11 +1,12 @@
-var express = require("express");
-var home = require("./controllers/home");
+var express = require("express"),
+    bootstrapper = require("./bootstrapper")();
 
 
 var app = new express();
 
 app.use("/", express.static("html"));
-app.use("/home", home);
+
+bootstrapper.loadControllers(app);
 
 app.listen(8080, function(){
     console.log("started!!");

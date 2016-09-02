@@ -14,5 +14,8 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-nodemon": "^0.4.2",
     "grunt-open": "^0.2.3"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
   }
 }

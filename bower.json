@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "bootstrap": "~3.3.6",
-    "angular": "angularjs#~1.5.6"
+    "angular": "angularjs#~1.5.6",
+    "flat-ui": "^2.3.0"
   }
 }

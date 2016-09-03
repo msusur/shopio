@@ -8,6 +8,9 @@ app.use("/", express.static("html"));
 
 bootstrapper.loadControllers(app);
 
-app.listen(8080, function(){
-    console.log("started!!");
+
+app.set('port', (process.env.PORT || 8080));
+
+app.listen(app.get('port'), function () {
+    console.log('Node app is running on port', app.get('port'));
 });

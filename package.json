@@ -2,6 +2,10 @@
   "engines": {
     "node": ">= 0.10.0"
   },
+  "scripts": {
+    "start": "npm install && bower install && grunt build && node app.js"
+  },
+  "main": "app.js",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-concurrent": "^2.3.0",

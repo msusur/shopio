@@ -1,13 +1,6 @@
 var fs = require("fs"),
   path = require("path");
 
-// homeController = require("./controllers/home"),
-//   listController = require("./controllers/list"),
-//   listsController = require("./controllers/lists")
-// app.use("/home", homeController);
-// app.use("/list", listController);
-// app.use("/lists", listsController);
-
 var Bootstrapper = function (controllerPath) {
   if (typeof (controllerPath) !== 'string') {
     controllerPath = 'controllers';

@@ -1,13 +1,14 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>ShopioSubApp</title>
-  <base href="/">
-  {{content-for 'head'}}
+  <base href="/"> {{content-for 'head'}}
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="stylesheet" href="node_modules/ng2-material/ng2-material.css">
+  <link rel="stylesheet" href="node_modules/ng2-material/font/font.css">
   <!-- Service worker support is disabled by default.
        Install the worker script and uncomment to enable.
        Only enable service workers in production.
@@ -20,6 +21,7 @@
   </script>
   -->
 </head>
+
 <body>
   <shopio-sub-app-app>Loading...</shopio-sub-app-app>
 
@@ -34,4 +36,5 @@
     }).catch(console.error.bind(console));
   </script>
 </body>
+
 </html>

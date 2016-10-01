@@ -18,6 +18,7 @@ Bootstrapper.prototype.loadControllers = function (app) {
       var routePath = that.controllerPath;
       var route = require('./' + routePath + '/' + file);
       app.use('/' + controllerName, route);
+      console.log('Controller loaded at /' + controllerName + '/');
     }
   });
 };

@@ -11,6 +11,7 @@
   "scripts": {
     "start": "./node_modules/.bin/ng build && node service/app.js",
     "postinstall": "typings install",
+    "clean": "rm -Rf node_modules && rm -Rf dist && rm -Rf tmp",
     "lint": "tslint \"src/**/*.ts\"",
     "format": "clang-format -i -style=file --glob=src/**/*.ts",
     "pree2e": "webdriver-manager update",

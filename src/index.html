@@ -3,27 +3,20 @@
 
 <head>
   <meta charset="utf-8">
-  <title>ShopioSubApp</title>
-  <base href="/"> {{content-for 'head'}}
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="node_modules/ng2-material/ng2-material.css">
-  <link rel="stylesheet" href="node_modules/ng2-material/font/font.css">
-  <!-- Service worker support is disabled by default.
-       Install the worker script and uncomment to enable.
-       Only enable service workers in production.
-  <script type="text/javascript">
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/worker.js').catch(function(err) {
-        console.log('Error installing service worker: ', err);
-      });
-    }
-  </script>
-  -->
+  <title>Material2</title>
+  <base href="/">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--<link href="@angular/material/core/theming/prebuilt/indigo-pink.css" rel="stylesheet">-->
+
+  <!-- FontAwesome for md-icon demo. -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <shopio-sub-app-app>Loading...</shopio-sub-app-app>
+  <shopio-main>Loading...</shopio-main>
 
   <script src="vendor/es6-shim/es6-shim.js"></script>
   <script src="vendor/reflect-metadata/Reflect.js"></script>

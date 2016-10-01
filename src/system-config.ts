@@ -45,6 +45,10 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
+    '@angular/material': {
+      format: 'cjs',
+      main: 'material.umd.js'
+    },
     'main': 'main.js'
   },
   packages: cliSystemConfigPackages

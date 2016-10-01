@@ -1,2 +1,2 @@
-export {environment} from './environment';
-export {ShopioSubAppAppComponent} from './shopio-sub-app.component';
+export { ShopioMain } from './shopio-main.component';
+export { ShopioModule } from './shopio.module';

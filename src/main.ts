@@ -1,11 +1,23 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { ShopioSubAppAppComponent, environment } from './app/';
-import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material";
-
+import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(ShopioSubAppAppComponent);
+
+// JIT Mode
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { ShopioModule } from './app/shopio.module';
+
+let platform = platformBrowserDynamic();
+platform.bootstrapModule(ShopioModule);
+
+// AOT
+// First run `./node_modules/.bin/ngc -p ./src/`
+/*
+import {platformBrowser} from '@angular/platform-browser';
+import {MaterialAppModuleNgFactory} from './aot/app/app.module.ngfactory';
+
+platformBrowser().bootstrapModuleFactory(MaterialAppModuleNgFactory);
+*/

@@ -1,2 +1,2 @@
-export { ShopioMain } from './shopio-main.component';
-export { ShopioModule } from './shopio.module';
+export * from './app.component';
+export * from './app.module';

@@ -5,10 +5,10 @@ describe('shopio-sub-app App', function() {
 
   beforeEach(() => {
     page = new ShopioSubAppPage();
-  })
+  });
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('shopio-sub-app works!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });

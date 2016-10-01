@@ -4,7 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
+    "start": "./node_modules/.bin/ng build && node service/app.js",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
@@ -12,6 +12,9 @@
   },
   "private": true,
   "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.5.10",
+    "angular-cli": "1.0.0-beta.16",
     "@angular/common": "2.0.0",
     "@angular/compiler": "2.0.0",
     "@angular/core": "2.0.0",

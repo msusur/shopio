@@ -26,14 +26,27 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directories
-node_modules
-jspm_packages
+# compiled output
+/dist
+/tmp
 
-# bower dependencies
-bower_components
-html/js/**
-html/css/**
+# dependencies
+/node_modules
+/bower_components
+/jspm_packages
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
 
 # mac stuff
 .DS_Store

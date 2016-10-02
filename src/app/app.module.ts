@@ -6,12 +6,14 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './Components/main-component/app.component';
 import { ShoppingListComponent } from './Components/shopping-list/shopping-list.component';
+import { ListButtonComponent } from './Components/shopping-list/list-button.component';
 import { ListService } from './Services/list.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShoppingListComponent
+    ShoppingListComponent,
+    ListButtonComponent
   ],
   imports: [
     BrowserModule,

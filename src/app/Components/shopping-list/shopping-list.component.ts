@@ -5,7 +5,7 @@ import { ShoppingListModel } from '../../Services/list.service';
     selector: 'shopping-list',
     templateUrl: './shopping-list.component.html',
     styleUrls: ['./shopping-list.component.css'],
-    inputs:['model']
+    inputs:['model'],
 })
 export class ShoppingListComponent  {
     private model: ShoppingListModel;

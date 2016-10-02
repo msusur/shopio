@@ -1,5 +1,5 @@
 <md-card-actions align="begin">
-    <button md-button color="accent">EDIT</button>
-    <button md-button color="primary">SAVE</button>
-    <button md-button color="warn">DELETE</button>
+    <button md-button color="accent" *ngIf="buttons.showEdit" (click)="editClick()">EDIT</button>
+    <button md-button color="primary" *ngIf="buttons.showSave" (click)="saveClick()">SAVE</button>
+    <button md-button color="warn" *ngIf="buttons.showDelete" (click)="deleteClick()">DELETE</button>
 </md-card-actions>

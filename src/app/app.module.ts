@@ -4,10 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
-import { AppComponent } from './Components/main-component/app.component';
-import { ShoppingListComponent } from './Components/shopping-list/shopping-list.component';
-import { ListButtonComponent } from './Components/shopping-list/list-button.component';
-import { ListService } from './Services/list.service';
+import { AppComponent, ShoppingListComponent, ListButtonComponent } from './Components';
+import { ListService, ComponentStateManagerService } from './Services';
 
 @NgModule({
   declarations: [
@@ -21,7 +19,7 @@ import { ListService } from './Services/list.service';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [ListService],
+  providers: [ListService, ComponentStateManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

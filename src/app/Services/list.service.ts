@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {  ShoppingListModel, ListItem } from '../Models';
 
 @Injectable()
 export class ListService {
@@ -21,13 +22,4 @@ export class ListService {
       ])
     ];
   }
-}
-
-export class ShoppingListModel {
-  constructor(public title: string, public items: ListItem[]) {
-  }
-}
-
-export class ListItem {
-  constructor(public name: string, public quantity: Number, public checked: boolean, public price: string) { }
 }

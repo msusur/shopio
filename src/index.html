@@ -15,7 +15,45 @@
 </head>
 
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <style type="text/css">
+      #pre-bootstrap {
+        background-color: white;
+        bottom: 0px;
+        left: 0px;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        z-index: 999999;
+      }
+      
+      #pre-bootstrap div.messaging {
+        color: black;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        left: 0px;
+        margin-top: -37px;
+        position: absolute;
+        right: 0px;
+        text-align: center;
+        top: 50%;
+      }
+      
+      #pre-bootstrap h1 {
+        font-size: 26px;
+        line-height: 35px;
+        margin: 0px 0px 20px 0px;
+      }
+    </style>
+
+    <div id="pre-bootstrap">
+      <div class="messaging">
+        <h1>
+          Loading, please wait!
+        </h1>
+      </div>
+    </div>
+  </app-root>
+
 </body>
 
 </html>

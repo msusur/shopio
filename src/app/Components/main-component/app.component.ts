@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ListService, ShoppingListModel } from '../../Services/list.service';
+import { ShoppingListModel } from '../../Models';
+import { ListService } from '../../Services/list.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { ListService, ShoppingListModel } from '../../Services/list.service';
   providers: []
 })
 export class AppComponent implements OnInit {
-  private lists: ShoppingListModel;
+  private lists: ShoppingListModel[];
   
   items = [
     { text: 'New' },
@@ -23,6 +24,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.lists = this.listService.getLists();
+  }
+
+  public createNew():void {
+    this.lists.push(ShoppingListModel.createEmpty());
   }
 
 }

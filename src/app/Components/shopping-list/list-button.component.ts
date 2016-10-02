@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, Output, EventEmitter } from '@angular/core';
 import { ButtonVisibility, ShoppingListModel, ComponentState } from '../../Models';
 import { ComponentStateManagerService } from '../../Services';
 
@@ -10,6 +10,7 @@ import { ComponentStateManagerService } from '../../Services';
 export class ListButtonComponent implements OnChanges, OnInit {
     private currentList: ShoppingListModel;
     private buttons: ButtonVisibility;
+    @Output() onDelete : EventEmitter<ShoppingListModel> = new EventEmitter();
 
     constructor(private stateService: ComponentStateManagerService) {
         this.buttons = stateService.initialise();
@@ -58,6 +59,6 @@ export class ListButtonComponent implements OnChanges, OnInit {
     }
 
     public deleteClick(): void {
-
+        this.onDelete.emit(this.currentList);
     }
 }

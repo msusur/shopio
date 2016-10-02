@@ -10,7 +10,7 @@ import { ListService } from '../../Services/list.service';
 })
 export class AppComponent implements OnInit {
   private lists: ShoppingListModel[];
-  
+
   items = [
     { text: 'New' },
     { text: 'Archieve' },
@@ -22,12 +22,18 @@ export class AppComponent implements OnInit {
   constructor(private listService: ListService) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.lists = this.listService.getLists();
   }
 
-  public createNew():void {
+  public createNew(): void {
     this.lists.push(ShoppingListModel.createEmpty());
+  }
+  public deleteItem(item: ShoppingListModel): void {
+    let index = this.lists.indexOf(item, 0);
+    if(index > -1){
+      this.lists.splice(index, 1);
+    }
   }
 
 }

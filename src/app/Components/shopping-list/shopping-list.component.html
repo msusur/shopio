@@ -17,5 +17,5 @@
             </md-list-item>
         </md-list>
     </md-card-content>
-    <list-button [currentList]="model"></list-button>
+    <list-button [currentList]="model" (onDelete)="deleteItem($event)"></list-button>
 </md-card>

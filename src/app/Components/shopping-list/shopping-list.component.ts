@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, EventEmitter, Output } from '@angular/core';
 import { ShoppingListModel, ListItem } from '../../Models';
 
 @Component({
@@ -10,11 +10,19 @@ import { ShoppingListModel, ListItem } from '../../Models';
 export class ShoppingListComponent {
     private model: ShoppingListModel;
 
+    @Output() onDeleteItem : EventEmitter<ShoppingListModel> = new EventEmitter();
+
     constructor() {
 
     }
 
     public addNew() {
         this.model.items.push(new ListItem('', 1, false, ''));
+    }
+
+    public deleteItem(event: ShoppingListModel){
+        if(event !== null){
+            this.onDeleteItem.emit(this.model);
+        }
     }
 }

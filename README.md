@@ -18,3 +18,4 @@ npm start
 - Basic login and register account feature.
 - Able to sharing the lists with other users.
 - Notify every other user who can see the lists when a new item is added. Update the lists automatically.
+- Write e2e/unit tests please...

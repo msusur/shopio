@@ -4,14 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
-import { AppComponent, ShoppingListComponent, ListButtonComponent } from './Components';
+import {
+  AppComponent,
+  ShoppingListComponent,
+  ListButtonComponent,
+  HomeComponent,
+  LoginComponent
+} from './Components';
+
 import { ListService, ComponentStateManagerService } from './Services';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShoppingListComponent,
-    ListButtonComponent
+    ListButtonComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

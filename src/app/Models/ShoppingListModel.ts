@@ -9,7 +9,7 @@ export class ShoppingListModel {
   }
 
   public static createEmpty(): ShoppingListModel {
-    let newModel = new ShoppingListModel('Title Here', []);
+    let newModel = new ShoppingListModel('', []);
     newModel.currentMode = ComponentState.New; 
     return newModel;
   }

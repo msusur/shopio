@@ -1,7 +1,7 @@
 <md-card>
     <md-toolbar color="primary">
         <span *ngIf="model.currentMode === 2">{{model.title}}</span>
-        <md-input [(ngModel)]="model.title" *ngIf="model.currentMode < 2"></md-input>
+        <md-input [(ngModel)]="model.title" *ngIf="model.currentMode < 2" placeholder="Enter Title Here"></md-input>
     </md-toolbar>
     <md-card-content>
         <md-list class="app-list">

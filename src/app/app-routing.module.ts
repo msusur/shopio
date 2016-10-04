@@ -1,15 +1,17 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent, AppComponent } from './Components';
+import { LoginComponent, HomeComponent } from './Components';
+import { AuthenticationManager, AuthenticationService } from './Services';
 
 const routes: Routes = [
-  { path: '/login', component: LoginComponent },
-  { path: '/', component: AppComponent }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthenticationManager] },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: []
-})
-export class ShopioSubAppRoutingModule { }
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+
+export const routingProviders = [
+  AuthenticationManager,
+  AuthenticationService
+];

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { ShoppingListModel } from '../../Models';
-import { ListService } from '../../Services/list.service';
+import { ListService, AuthenticationService } from '../../Services';
 
 @Component({
   selector: 'sh-home',
@@ -8,22 +9,13 @@ import { ListService } from '../../Services/list.service';
   styleUrls: ['./home.component.css'],
   providers: []
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   private lists: ShoppingListModel[];
+  private logoutSubscription: any;
 
-  items = [
-    { text: 'New' },
-    { text: 'Archieve' },
-    { text: 'Delete' }
-  ];
-
-  progress: number = 0;
-
-  constructor(private listService: ListService) {
-  }
-
-  ngOnInit() {
-    this.lists = this.listService.getLists();
+  constructor(private listService: ListService,
+    private authService: AuthenticationService,
+    private router: Router) {
   }
 
   public createNew(): void {
@@ -31,9 +23,22 @@ export class HomeComponent implements OnInit {
   }
   public deleteItem(item: ShoppingListModel): void {
     let index = this.lists.indexOf(item, 0);
-    if(index > -1){
+    if (index > -1) {
       this.lists.splice(index, 1);
     }
+  }
+
+  public logout(): void {
+    let result = this.authService.logout();
+    this.logoutSubscription = result.subscribe(result => this.router.navigate(['login']));
+  }
+
+  ngOnInit() {
+    this.lists = this.listService.getLists();
+  }
+
+  ngOnDestroy() {
+    this.logoutSubscription.unsubscribe();
   }
 
 }

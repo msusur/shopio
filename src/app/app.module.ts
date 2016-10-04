@@ -12,7 +12,13 @@ import {
   LoginComponent
 } from './Components';
 
-import { ListService, ComponentStateManagerService } from './Services';
+import {
+  ListService,
+  ComponentStateManagerService,
+  LocalStorageService
+} from './Services';
+
+import { routing, routingProviders } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,9 +32,15 @@ import { ListService, ComponentStateManagerService } from './Services';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    routing
   ],
-  providers: [ListService, ComponentStateManagerService],
+  providers: [
+    ListService,
+    ComponentStateManagerService,
+    LocalStorageService,
+    routingProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

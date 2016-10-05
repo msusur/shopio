@@ -9,7 +9,9 @@ import {
   ShoppingListComponent,
   ListButtonComponent,
   HomeComponent,
-  LoginComponent
+  LoginComponent,
+  LoginInputsComponent,
+  LoginRegisterComponent
 } from './Components';
 
 import {
@@ -26,7 +28,9 @@ import { routing, routingProviders } from './app-routing.module';
     ShoppingListComponent,
     ListButtonComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    LoginInputsComponent,
+    LoginRegisterComponent
   ],
   imports: [
     BrowserModule,

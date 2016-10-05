@@ -1,0 +1,19 @@
+<md-card-content>
+  <table style="width: 100%" cellspacing="0">
+    <tr>
+      <td>
+        <md-input class="full-width" placeholder="Email Address" (ngModel)="userModel.username"></md-input>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-input class="full-width" type="password" placeholder="Password" (ngModel)="userModel.password"></md-input>
+      </td>
+    </tr>
+  </table>
+
+</md-card-content>
+<md-card-actions align="end">
+  <button md-raised-button color="primary" (click)="loginClick()">LOGIN</button>
+  <button md-raised-button color="accent" (click)="registerClick()">REGISTER</button>
+</md-card-actions>

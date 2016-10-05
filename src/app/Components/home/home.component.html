@@ -17,7 +17,7 @@
 
   <shopping-list *ngFor="let list of lists" (onDeleteItem)="deleteItem($event)" [model]="list"></shopping-list>
 
-  <md-card *ngIf="lists.length === 0">
+  <md-card *ngIf="lists && lists.length === 0">
     <md-card-title-group>
       <md-card-title> No cards here :( </md-card-title>
       <md-card-subtitle>

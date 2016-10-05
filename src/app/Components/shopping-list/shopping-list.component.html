@@ -1,0 +1,21 @@
+<md-card>
+    <md-toolbar color="primary">
+        <span *ngIf="model.currentMode === 2">{{model.title}}</span>
+        <md-input [(ngModel)]="model.title" *ngIf="model.currentMode < 2" placeholder="Enter Title Here"></md-input>
+    </md-toolbar>
+    <md-card-content>
+        <md-list class="app-list">
+            <md-list-item *ngFor="let item of model.items">
+                <md-checkbox [(checked)]="item.checked">
+                    <md-input [(ngModel)]="item.name" *ngIf="model.currentMode < 2"></md-input>
+                    <span *ngIf="model.currentMode === 2">{{item.name}}</span>
+                    <span (innerHtml)="item.checked"></span>
+                </md-checkbox>
+            </md-list-item>
+            <md-list-item *ngIf="model.currentMode < 2">
+                <button md-raised-button (click)="addNew()">Click to add new</button>
+            </md-list-item>
+        </md-list>
+    </md-card-content>
+    <list-button [currentList]="model" (onDelete)="deleteItem($event)"></list-button>
+</md-card>

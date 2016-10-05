@@ -1,0 +1,29 @@
+<md-toolbar color="primary">
+  <span>
+      <md-icon class="material-icons">shopping_cart </md-icon>
+    </span>
+  <span class="app-toolbar-filler"></span> Shopping Lists
+
+  <span class="app-toolbar-filler"></span>
+  <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+</md-toolbar>
+<md-menu x-position="before" #menu="mdMenu">
+  <button md-menu-item (click)="createNew()">Create New</button>
+  <button md-menu-item (click)="logout()">Logout</button>
+</md-menu>
+<div class="app-content">
+
+  <shopping-list *ngFor="let list of lists" (onDeleteItem)="deleteItem($event)" [model]="list"></shopping-list>
+
+  <md-card *ngIf="lists.length === 0">
+    <md-card-title-group>
+      <md-card-title> No cards here :( </md-card-title>
+      <md-card-subtitle>
+        <button md-button (click)="createNew()">How about adding a new one?</button>
+      </md-card-subtitle>
+    </md-card-title-group>
+  </md-card>
+
+</div>

@@ -12,6 +12,7 @@ import { ListService, AuthenticationService } from '../../Services';
 export class HomeComponent implements OnInit, OnDestroy {
   private lists: ShoppingListModel[];
   private logoutSubscription: any;
+  private listSubscription: any;
 
   constructor(private listService: ListService,
     private authService: AuthenticationService,
@@ -34,11 +35,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.lists = this.listService.getLists();
+    let resultStream = this.listService.getLists();
+    this.listSubscription = resultStream.subscribe(result => this.lists = result);
   }
 
   ngOnDestroy() {
     this.logoutSubscription.unsubscribe();
+    this.listSubscription.unsubscribe();
   }
 
 }

@@ -1,29 +1,32 @@
 <md-card-content>
-  <table style="width: 100%" cellspacing="0">
-    <tr>
-      <td>
-        <md-input class="full-width" placeholder="Email Address" (ngModel)="userModel.username"></md-input>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <md-input class="full-width" placeholder="Enter Email Address Again" (ngModel)="userModel.username"></md-input>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <md-input class="full-width" type="password" placeholder="Password" (ngModel)="userModel.password"></md-input>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <md-input class="full-width" type="password" placeholder="Password Again" (ngModel)="userModel.password"></md-input>
-      </td>
-    </tr>
-  </table>
+	<div *ngIf="!!errorMessage" class="validation">
+		{{errorMessage}}
+	</div>
+	<table style="width: 100%" cellspacing="0">
+		<tr>
+			<td>
+				<md-input class="full-width" placeholder="Email Address" [(ngModel)]="userModel.Username"></md-input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<md-input class="full-width" placeholder="Enter Email Address Again" [(ngModel)]="userModel.RepeatUsername"></md-input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<md-input class="full-width" type="password" placeholder="Password" [(ngModel)]="userModel.Password"></md-input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<md-input class="full-width" type="password" placeholder="Password Again" [(ngModel)]="userModel.RepeatPassword"></md-input>
+			</td>
+		</tr>
+	</table>
 
 </md-card-content>
 <md-card-actions align="end">
-  <button md-raised-button color="primary" (click)="registerClick()">CONTINUE</button>
-  <button md-raised-button color="accent" (click)="cancelClick()">CANCEL</button>
+	<button md-raised-button color="primary" (click)="registerClick()">CONTINUE</button>
+	<button md-raised-button color="accent" (click)="cancelClick()">CANCEL</button>
 </md-card-actions>

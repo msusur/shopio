@@ -1,11 +1,17 @@
 var fs = require("fs"),
-  path = require("path");
+  path = require("path"),
+  database = require("./services/mongoDbLayer");
 
 var Bootstrapper = function (controllerPath) {
   if (typeof (controllerPath) !== 'string') {
     controllerPath = 'controllers';
   }
   this.controllerPath = controllerPath;
+};
+
+Bootstrapper.prototype.testDatabase = function () {
+  var db = new database();
+  return this;
 };
 
 Bootstrapper.prototype.loadControllers = function (app) {
@@ -17,10 +23,12 @@ Bootstrapper.prototype.loadControllers = function (app) {
     if (file.substr(-3) === '.js') {
       var routePath = that.controllerPath;
       var route = require('./' + routePath + '/' + file);
-      app.use('/' + controllerName, route);
-      console.log('Controller loaded at /' + controllerName + '/');
+      var endpoint = '/api/' + controllerName;
+      app.use(endpoint, route);
+      console.log('Controller loaded at "%s"', endpoint);
     }
   });
+  return this;
 };
 
 module.exports = function () {

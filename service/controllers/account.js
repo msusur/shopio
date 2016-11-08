@@ -19,7 +19,6 @@ router.post('/login', function (req, res) {
 
 router.post('/register', function (req, res) {
     var userModel = req.body;
-    console.log(req);
     var userDatabase = new Database();
     var users = userDatabase.users();
     users.insert({ userName: userModel.userName, password: userModel.password })

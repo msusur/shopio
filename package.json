@@ -5,6 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "./node_modules/.bin/ng build && node service/app.js",
+    "build": "./node_modules/.bin/ng build",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
@@ -23,6 +24,7 @@
     "@angular/router": "3.0.0",
     "@types/node": "^6.0.41",
     "angular-cli": "1.0.0-beta.16",
+    "body-parser": "^1.15.2",
     "core-js": "^2.4.1",
     "express": "^4.14.0",
     "mongodb": "^2.2.10",

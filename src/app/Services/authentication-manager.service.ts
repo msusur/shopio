@@ -13,7 +13,7 @@ export class AuthenticationManager implements CanActivate {
     }
 
     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        if(this.authService.isUserLoggedIn()){
+        if (this.authService.isUserLoggedIn()) {
             return true;
         }
 

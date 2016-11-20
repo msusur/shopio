@@ -27,7 +27,6 @@ export class LoginComponent implements OnDestroy, OnInit {
 
     public registerClick(): void {
         let result = this.authService.register(this.user);
-        debugger;
         this.loginSubscription = result.subscribe(result => {
             this.router.navigate(['/home']);
         });

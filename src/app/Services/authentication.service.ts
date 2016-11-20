@@ -11,31 +11,39 @@ import 'rxjs/add/operator/delay';
 @Injectable()
 export class AuthenticationService {
     public redirectAfterLoginTo: string;
-    private loggedIn: boolean = false;
+
+    private static TOKEN_KEY: string = 'login:token';
 
     constructor(private storage: LocalStorageService, private http: Http) { }
 
-    public isUserLoggedIn(): boolean {
-        return this.loggedIn;
-    }
-
     public login(user: UserModel): Observable<boolean> {
-        this.loggedIn = true;
-        return Observable.of(true).delay(1000);
+        return this.http.post('/api/account/login', user)
+            .map(response => response.json())
+            .do(result => this.setToken(result.token));
     }
 
     public register(user: UserModel): Observable<boolean> {
-        this.loggedIn = true;
-
-        return this.http.post('/api/account/register', user).map(response => response.json().result);
+        return this.http.post('/api/account/register', user)
+            .map(response => response.json().result)
+            .do(result => this.setToken(result.token));
     }
 
     public logout(): Observable<boolean> {
-        this.loggedIn = false;
-        return Observable.of(true).delay(1000);
+        let token = this.getToken();
+        return this.http.post('/api/account/logout', token)
+            .map(response => response.json().result)
+            .do(result => this.setToken(''));
     }
 
     public getToken(): string {
-        return '';
+        return this.storage.get(AuthenticationService.TOKEN_KEY);
+    }
+
+    public setToken(token: string) {
+        this.storage.set(AuthenticationService.TOKEN_KEY, token);
+    }
+
+    public isUserLoggedIn(): boolean {
+        return this.getToken().length > 0;
     }
 }

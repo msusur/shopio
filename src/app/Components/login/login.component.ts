@@ -29,7 +29,7 @@ export class LoginComponent implements OnDestroy, OnInit {
     public registerClick(): void {
         let result = this.authService.register(this.user);
         
-        this.loginSubscription = result.subscribe(result => {
+        this.loginSubscription = result.subscribe(r => {
             this.authService.setToken(r.Token);
             this.router.navigate(['/home']);
         });

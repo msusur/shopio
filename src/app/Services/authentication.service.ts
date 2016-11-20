@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { UserModel } from '../Models';
+import { UserModel, AccountResponseResult } from '../Models';
 import { Observable } from 'rxjs/Observable';
 import { LocalStorageService } from './storage.service';
 
@@ -13,26 +13,20 @@ export class AuthenticationService {
     public redirectAfterLoginTo: string;
 
     private static TOKEN_KEY: string = 'login:token';
-
     constructor(private storage: LocalStorageService, private http: Http) { }
 
-    public login(user: UserModel): Observable<boolean> {
+    public login(user: UserModel): Observable<AccountResponseResult> {
         return this.http.post('/api/account/login', user)
-            .map(response => response.json())
-            .do(result => this.setToken(result.token));
+            .map(response => response.json());
     }
 
-    public register(user: UserModel): Observable<boolean> {
+    public register(user: UserModel): Observable<AccountResponseResult> {
         return this.http.post('/api/account/register', user)
-            .map(response => response.json().result)
-            .do(result => this.setToken(result.token));
+            .map(response => response.json().result);
     }
 
     public logout(): Observable<boolean> {
-        let token = this.getToken();
-        return this.http.post('/api/account/logout', token)
-            .map(response => response.json().result)
-            .do(result => this.setToken(''));
+        return Observable.of().do(result => this.setToken(''));
     }
 
     public getToken(): string {

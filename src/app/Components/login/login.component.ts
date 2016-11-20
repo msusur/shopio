@@ -20,14 +20,17 @@ export class LoginComponent implements OnDestroy, OnInit {
     public loginClick(): void {
         let result = this.authService.login(this.user);
 
-        this.loginSubscription = result.subscribe(result => {
+        this.loginSubscription = result.subscribe(r => {
+            this.authService.setToken(r.Token);
             this.router.navigate(['/home']);
         });
     }
 
     public registerClick(): void {
         let result = this.authService.register(this.user);
+        
         this.loginSubscription = result.subscribe(result => {
+            this.authService.setToken(r.Token);
             this.router.navigate(['/home']);
         });
     }

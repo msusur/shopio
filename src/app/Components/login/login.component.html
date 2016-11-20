@@ -10,7 +10,7 @@
     <md-card>
         <sh-login-inputs *ngIf="!!login" [(userModel)]="user" (loginClicked)="loginClick()" (registerClicked)="login = false">
         </sh-login-inputs>
-        <sh-login-register *ngIf="!login" (userModel)="user" (registerClicked)="registerClick()" (cancelClicked)="login = true">
+        <sh-login-register *ngIf="!login" [(userModel)]="user" (registerClicked)="registerClick()" (cancelClicked)="login = true">
         </sh-login-register>
     </md-card>
 </md-sidenav-layout>

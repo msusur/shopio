@@ -1,8 +1,15 @@
 var mongodb = require('mongodb-promises'),
-    dbConnection = process.env.MONGODB_URI || "mongodb://localhost/shopio",
+    dbHost = process.env.MONGODB_HOST || "localhost",
+    dbPort = process.env.MONGODB_PORT || "27017",
+    dbName = process.env.MONGODB_DBNAME || "shopio",
+    dbUsername = process.env.MONGODB_USERNAME || "",
+    dbPassword = process.env.MONGODB_PASSWORD || "",
     database = function () {
-        this.db = mongodb.db(dbConnection);
-        console.log("Connected to database server: %s", dbConnection);
+        if(dbUsername.length > 0 && dbPassword.length > 0){
+            dbHost = dbUsername + ':' + dbPassword + '@' + dbHost;
+        }
+        this.db = mongodb.db(dbHost + ':' + dbPort, dbName);
+        console.log("Connected to database server: %s", dbHost, ':', dbPort, dbName);
     };
 
 database.prototype.shoppingLists = function () {
